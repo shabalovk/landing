@@ -1,11 +1,22 @@
 .container
-    height: calc( 100vh - 120px )
+    height: 100vh
     width: 100%
-    background-image: linear-gradient(120deg, #FF884B, #FC00FF)
+    background-image: linear-gradient(120deg, #ff884b 30%, #fc00ff)
     position: relative
-    padding-top: 120px
-    &__wrapper
+    padding-top: 90px
+    overflow: hidden
+    &__item-wrapper
+        width: 100%
+    &__wrapper-first
         width: 903px
+        position: relative
+        margin: 0 auto
+    &__wrapper-second
+        width: 1020px
+        position: relative
+        margin: 0 auto
+    &__wrapper-third
+        width: 1010px
         position: relative
         margin: 0 auto
     &__logo
@@ -17,105 +28,209 @@
         right: 140px
     &__img-laptop
         position: absolute
-        width: 556px
-        height: 446px
-        top: 50%
-        left: 50%
-        transform: translate3d(-56%, -34%, 0) rotate(4deg)
+        width: 598px
+        top: 19%
+        left: 14%
         z-index: 3
     &__img-gift
         position: absolute
-        width: 318px
-        height: 304px
-        top: 70%
-        left: -8%
+        width: 329px
+        top: 69%
+        left: -9%
         z-index: 4
     &__img-cake
         position: absolute
         width: 292px
-        height: 438px
-        left: 49%
-        top: 5%
+        // height: 438px
+        left: 49% 
+        top: 8%
         z-index: 2
     &__img-crown
         position: absolute
-        width: 221px
-        height: 166px
-        top: 22%;
-        left: 75%;
-        transform: rotate(11deg)
+        width: 237px
+        top: 25%
+        left: 73%
         z-index: 4
     &__img-feedback
         position: absolute
-        width: 412px
-        height: 167px
+        width: 424px
         left: 64%
-        top: 42%
-        transform: rotate(-12deg)
+        top: 41%
         z-index: 3
     &__img-hand
         position: absolute
-        width: 258px
-        height: 299px
-        top: 26%
-        left: -5%
-        transform: rotate(-10deg)
+        width: 275px
+        top: 23%
+        left: -7%
         z-index: 2
     &__img-powder_pink_1
         position: absolute
         width: 775px
-        height: 706px
         top: -12%
-        left: 28%
+        left: 29%
         z-index: 1
     &__img-powder_pink_2
         position: absolute
         width: 562px
-        height: 381px
-        top: 41%
+        top: 30%
         left: -15%
         z-index: 1
     &__img-tablet
-        width: 488px
-        height: 412px
+        width: 522px
         position: absolute
-        top: 29%
-        left: 29%
-        transform: rotate(3deg)
+        top: 23%
+        left: 24%
+        z-index: 3
     &__img-darts
-        width: 276px
-        height: 280px
+        width: 288px
         position: absolute
-        top: 22%
-        left: 11%
+        top: 21%
+        left: 8%
+        z-index: 2
     &__img-money
-        width: 344px
-        height: 212px
+        width: 350px
         position: absolute
         top: 54%
-        left: 74%
+        left: 65%
+        z-index: 2
     &__img-coins
-        width: 128px
-        height: 149px
+        z-index: 4
+        width: 154px
         position: absolute
         top: 37%
-        left: 75%
-        transform: rotate(22deg)
+        left: 65%
     &__img-diamond
-        width: 95px
-        height: 64px
+        z-index: 3
+        width: 116px
         position: absolute
-        top: 37%
-        left: 89%
-        transform: rotate(18deg)
+        top: 35%
+        left: 78%
     &__img-powder_blue_1
         position: absolute
-        width: 411px
-        height: 411px
+        width: 542px
+        top: 29%
+        left: -5%
+        z-index: 1
     &__img-powder_blue_2
         position: absolute
-        width: 435px
-        height: 433px
+        width: 542px
+        top: 13%
+        left: 45%
+        z-index: 1
+    &__img-message-1
+        width: 264px
+        position: absolute
+        z-index: 4
+    &__img-message-2
+        width: 264px
+        position: absolute
+        z-index: 4
+    &__img-message-3
+        width: 264px
+        position: absolute
+        z-index: 4
+    &__messages-wrapper
+        position: absolute
+        z-index: 4
+        top: 73%
+        left: 4%
+    &__message
+        width: 300px
+        height: 75px
+        background: #fff    
+        border-radius: 20px
+        padding: 12px
+        display: flex
+        align-items: center
+        margin-bottom: 15px
+        position: relative
+    &__message-icon
+        width: 35px
+        height: 35px
+        border-radius: 12px
+        background: red
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-right: 10px
+    &__message-title
+        font-size: 14px
+        margin-bottom: 4px
+        font-weight: 700
+    &__message-subtitle
+        font-size: 13px
+        margin-bottom: 4px
+    &__message-circle
+        width: 19px
+        height: 19px
+        background: #fff
+        border-radius: 100%
+    &__message-time
+        position: absolute
+        top: 12px
+        right: 12px
+        font-size: 12px
+        font-weight: 500
+    &__img-phone-1
+        position: absolute
+        left: 25%
+        top: 23%
+        width: 548px
+        z-index: 4
+    &__img-phone-2
+        position: absolute
+        left: -2%
+        top: 25%
+        width: 519px
+        z-index: 4
+    &__img-bag
+        position: absolute
+        top: 10%
+        left: 21%
+        width: 400px
+        z-index: 2
+    &__img-zen
+        position: absolute
+        top: 39%
+        left: -7%
+        width: 307px
+        z-index: 2
+    &__img-table
+        position: absolute
+        top: 78%
+        left: 11%
+        width: 264px
+        z-index: 5
+    &__img-palm
+        position: absolute
+        width: 394px
+        top: 13%
+        left: 59%
+        z-index: 2
+    &__img-hammock
+        position: absolute
+        width: 374px
+        top: 36%
+        left: 53%
+        z-index: 3
+    &__img-powder-pur-1
+        position: absolute
+        top: 6%
+        left: 10%
+        width: 512px
+        z-index: 1
+    &__img-powder_pur-2
+        position: absolute
+        top: 7%
+        left: 49%
+        width: 539px
+        z-index: 1
+    &__img-powder-pur-3
+        position: absolute
+        top: 34%
+        left: -14%
+        width: 468px
+        z-index: 1
     &__btn
         position: absolute
         bottom: 55px
