@@ -18,14 +18,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    $('.container__carousel').slick({
-        centerMode: true,
-        slidesToShow: 1,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        draggable: false,
-        pauseOnFocus: false,
-        pauseOnHover: false
-    });
+    // $('.container__carousel').slick({
+    //     centerMode: true,
+    //     slidesToShow: 1,
+    //     arrows: false,
+    //     autoplay: true,
+    //     autoplaySpeed: 5000,
+    //     draggable: false,
+    //     pauseOnFocus: false,
+    //     pauseOnHover: false
+    // });
 })
