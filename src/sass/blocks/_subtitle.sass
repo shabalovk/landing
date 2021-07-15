@@ -5,12 +5,39 @@
     text-transform: uppercase
     line-height: 153px
     color: none
+    transform: translateX(20%)
+    transition: transform 1s
+    opacity: 1
+    transform: translateX(0)
+    &.active
+        transform: translateX(0)
+        opacity: 1
+    // &.hidden
+    //     transform: translateX(-20%)
+    //     opacity: 0
     &_transperent-1
         color: transparent
         -webkit-text-stroke: 6px #ffffffe3
+        // transform: translateX(40%)
+        // transition: transform 1s, opacity 2s
+        // &.active
+        //     transform: translateX(0)
+        //     opacity: 1
+        // &.hidden
+        //     transform: translateX(-40%)
+        //     opacity: 0
     &_transperent-2
        color: transparent
        -webkit-text-stroke: 6px #ffffffb2
+    //    transform: translateX(60%)
+    //    transition: transform 1s
+    //    &.active
+    //         transform: translateX(0)
+    //         opacity: 1
+    //    &.hidden
+    //         transform: translateX(-60%)
+    //         opacity: 0
+
 
 @media ( max-width: 1276px )
     .subtitle

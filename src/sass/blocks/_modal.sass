@@ -4,11 +4,9 @@
     width: 100%
     height: 100vh
     background: rgba(0, 0, 0, .3)
-    justify-content: center
-    align-items: center
     display: none
     &.active
-        display: flex
+        display: block
     &__window
         width: 808px
         height: 570px
@@ -16,9 +14,13 @@
         background: #fff
         border-radius: 48px
         position: relative
+        margin: 0 auto
+        top: 50%
+        transform: translateY(-50%)
     &__close
         position: absolute
         right: 0
+        top: 65px
         width: 48px
         height: 48px
         background-image: linear-gradient(120deg, #ff884b 30%, #fc00ff)
@@ -68,4 +70,42 @@
     &__footer-link
         color: #000 
         font-size: 19px
+
+@media ( max-width: 838px )
+    .modal
+        &__window-wrapper
+            max-width: 465px
+        &__window
+            height: 100%
+            width: 95%
+            left: 0
+            margin: 0
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+            padding: 24px 24px 24px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+        &__title
+            text-align: start
+            font-size: 40px
+            line-height: 42px
+        &__input
+            font-size: 17px
+        &__accent-word
+            font-size: 40px
+        &__footer
+            flex-direction: column
+            justify-content: center
+            align-items: center
+        &__footer-btn
+            margin: 0 0 18px 0
+            order: 1
+            width: 100%
+            font-weight: 600
+        &__footer-link
+            order: 2
+        
+    
             
