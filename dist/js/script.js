@@ -2,6 +2,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     const openModalBtn = document.querySelector('.container__btn');
     const modal = document.querySelector('.modal');
+    const modalInner = document.querySelector('.modal__window');
     const closeModal = document.querySelector('.modal__close');
 
     const tablet = document.querySelector('.container__img-tablet');
@@ -18,23 +19,35 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log(document.querySelector('.container__wrapper-first .subtitle'));
     
     openModalBtn.addEventListener('click', () => {
-        modal.classList.add('active')
+        modal.style.display = "block";
+        setTimeout(() => {
+            modalInner.classList.add('active');
+            modal.classList.add('active');
+        }, 0)
     })
 
     closeModal.addEventListener('click', () => {
+        modalInner.classList.remove('active');
         modal.classList.remove('active')
+        setTimeout(() => {
+            modal.style.display = "none"
+        }, 350)
     })
 
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
+            modalInner.classList.remove('active');
             modal.classList.remove('active')
+            setTimeout(() => {
+                modal.style.display = "none"
+            }, 350)
         }
     })
 
     setInterval(() => {
         changeActiveElem();
         changeActiveContainer();
-    }, 6000);
+    }, 5400);
 
     function showElement(selector, firstAnimation, secondAnimation, startInterval = 0) {
         const subtitles = document.querySelectorAll(selector)
@@ -62,6 +75,19 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    showElement('.container__wrapper-first .image', 'animate__jackInTheBox', 'animate__bounceOut')
+
+    setTimeout(() => {
+        const images = document.querySelectorAll('.container__wrapper-first .image')
+        images.forEach(item => {
+            item.classList.add('active')
+        })
+        images.forEach(item => {
+            item.classList.add('animate__bounceOut')
+            item.classList.remove('animate__jackInTheBox');
+        })
+    }, 4500)
+
     function changeActiveContainer() {
         if (laptop.classList.contains('active')) {
             firstContainer.classList.add('active')
@@ -83,7 +109,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     item.classList.add('animate__bounceOut')
                     item.classList.remove('animate__jackInTheBox');
                 })
-            }, 5000)
+            }, 4500)
             
             hideElement('.container__wrapper-third .title', 'animate__fadeOutLeft', 'animate__fadeInRight' )
             hideElement('.container__wrapper-third .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
@@ -108,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     item.classList.add('animate__bounceOut')
                     item.classList.remove('animate__jackInTheBox');
                 })
-            }, 5000)
+            }, 4500)
 
             hideElement('.container__wrapper-first .title', 'animate__fadeOutLeft', 'animate__fadeInRight')
             hideElement('.container__wrapper-first .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
@@ -135,7 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     item.classList.add('animate__bounceOut')
                     item.classList.remove('animate__jackInTheBox');
                 })
-            }, 5000)
+            }, 4500)
 
             hideElement('.container__wrapper-second .title', 'animate__fadeOutLeft', 'animate__fadeInRight')
             hideElement('.container__wrapper-second .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)

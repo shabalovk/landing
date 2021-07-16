@@ -5,11 +5,14 @@
     height: 100vh
     background: rgba(0, 0, 0, .3)
     display: none
+    opacity: 0
+    transition: opacity .35s
     &.active
-        display: block
+        opacity: 1
     &__window
+        overflow: auto
         width: 808px
-        height: 570px
+        // height: 570px
         padding: 55px 136px
         background: #fff
         border-radius: 48px
@@ -17,6 +20,10 @@
         margin: 0 auto
         top: 50%
         transform: translateY(-50%)
+        opacity: 0
+        transition: opacity 0.4s
+        &.active
+            opacity: 1
     &__close
         position: absolute
         right: 0
@@ -87,6 +94,13 @@
             flex-direction: column
             justify-content: center
             align-items: center
+            top: 0
+            bottom: 0
+            transition: transform 0.3s
+            transform: translate3d(-100%, 0, 0)
+            opacity: 1
+            &.active
+                transform: translate3d(0%, 0, 0)
         &__title
             text-align: start
             font-size: 40px
