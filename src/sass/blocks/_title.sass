@@ -4,8 +4,12 @@
     text-transform: uppercase
     font-weight: 400
     transform: translateX(-104px)
-    &_second-screen
-        transform: translateX(-25px)
+    &.fadeIn
+        animation: titleFadeIn 1s
+        opacity: 1
+    &.fadeOut
+        animation: titleFadeOut 1s
+        opacity: 0
 
 @media ( max-width: 1276px )
     .title
@@ -23,4 +27,21 @@
         margin-left: auto
         &_second-screen
             width: 225px
+
+
+@keyframes titleFadeIn
+    0%
+        transform: translateX(25%)
+        opacity: 0
+    100%
+        transform: translateX(-104px)
+        opacity: 1
+
+@keyframes titleFadeOut
+    0%
+        transform: translateX(-104px)
+        opacity: 1
+    100%
+        transform: translateX(-25%)
+        opacity: 0
     

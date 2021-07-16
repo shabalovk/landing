@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         changeActiveElem();
         changeActiveContainer();
-    }, 5400);
+    }, 2000);
 
     function showElement(selector, firstAnimation, secondAnimation, startInterval = 0) {
         const subtitles = document.querySelectorAll(selector)
@@ -75,96 +75,56 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    showElement('.container__wrapper-first .image', 'animate__jackInTheBox', 'animate__bounceOut')
+    function showDescr(selector) {
+        const item = document.querySelector(selector)
 
-    setTimeout(() => {
-        const images = document.querySelectorAll('.container__wrapper-first .image')
-        images.forEach(item => {
-            item.classList.add('active')
-        })
-        images.forEach(item => {
-            item.classList.add('animate__bounceOut')
-            item.classList.remove('animate__jackInTheBox');
-        })
-    }, 4500)
+        item.classList.add('fadeIn')
+        item.classList.remove('fadeOut');
+    }
+
+    function hideDescr(selector) {
+        const item = document.querySelector(selector)
+
+        item.classList.add('fadeOut')
+        item.classList.remove('fadeIn');
+    }
 
     function changeActiveContainer() {
         if (laptop.classList.contains('active')) {
             firstContainer.classList.add('active')
             thirdContainer.classList.remove('active');
-            
-            showElement('.container__wrapper-first .title', 'animate__fadeInRight', 'animate__fadeOutLeft')
-            showElement('.container__wrapper-first .subtitle', 'animate__fadeInRight', 'animate__fadeOutLeft', 200)
 
-            setTimeout(() => {
-                showElement('.container__wrapper-first .image', 'animate__jackInTheBox', 'animate__bounceOut')
-            }, 1500)
+            showDescr('.container__wrapper-first .title')
+            showElement('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 200)
+            showDescr('.container__wrapper-first .descr')
 
-            setTimeout(() => {
-                const images = document.querySelectorAll('.container__wrapper-first .image')
-                images.forEach(item => {
-                    item.classList.add('active')
-                })
-                images.forEach(item => {
-                    item.classList.add('animate__bounceOut')
-                    item.classList.remove('animate__jackInTheBox');
-                })
-            }, 4500)
-            
-            hideElement('.container__wrapper-third .title', 'animate__fadeOutLeft', 'animate__fadeInRight' )
-            hideElement('.container__wrapper-third .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
+            hideDescr('.container__wrapper-third .descr')
+            hideDescr('.container__wrapper-third .title')
+            hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 200)
 
         } else if (tablet.classList.contains('active')) {
+            secondContainer.classList.add('active')
+            firstContainer.classList.remove('active')
 
-            showElement('.container__wrapper-second .title', 'animate__fadeInRight', 'animate__fadeOutLeft')
-            showElement('.container__wrapper-second .subtitle', 'animate__fadeInRight', 'animate__fadeOutLeft', 200)
+            showDescr('.container__wrapper-second .descr')
+            showDescr('.container__wrapper-second .title')
+            showElement('.container__wrapper-second .subtitle', 'fadeIn', 'fadeOut', 200)
 
-            setTimeout(() => {
-                showElement('.container__wrapper-second .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
-            }, 1500)
-
-            setTimeout(() => {
-                const images = document.querySelectorAll('.container__wrapper-second .image')
-
-                images.forEach(item => {
-                    item.classList.add('active')
-                })
-
-                images.forEach(item => {
-                    item.classList.add('animate__bounceOut')
-                    item.classList.remove('animate__jackInTheBox');
-                })
-            }, 4500)
-
-            hideElement('.container__wrapper-first .title', 'animate__fadeOutLeft', 'animate__fadeInRight')
-            hideElement('.container__wrapper-first .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
+            hideDescr('.container__wrapper-first .descr')
+            hideDescr('.container__wrapper-first .title')
+            hideElement('.container__wrapper-first .subtitle', 'fadeOut', 'fadeIn', 200)
 
         } else if (phone_1.classList.contains('active')) {
             thirdContainer.classList.add('active')
             secondContainer.classList.remove('active')
 
-            showElement('.container__wrapper-third .title', 'animate__fadeInRight', 'animate__fadeOutLeft')
-            showElement('.container__wrapper-third .subtitle', 'animate__fadeInRight', 'animate__fadeOutLeft', 200)
+            showDescr('.container__wrapper-third .descr')
+            showDescr('.container__wrapper-third .title')
+            showElement('.container__wrapper-third .subtitle', 'fadeIn', 'fadeOut', 200)
 
-            setTimeout(() => {
-                showElement('.container__wrapper-third .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
-            }, 1500)
-
-            setTimeout(() => {
-                const images = document.querySelectorAll('.container__wrapper-third .image')
-
-                images.forEach(item => {
-                    item.classList.add('active')
-                })
-
-                images.forEach(item => {
-                    item.classList.add('animate__bounceOut')
-                    item.classList.remove('animate__jackInTheBox');
-                })
-            }, 4500)
-
-            hideElement('.container__wrapper-second .title', 'animate__fadeOutLeft', 'animate__fadeInRight')
-            hideElement('.container__wrapper-second .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
+            hideDescr('.container__wrapper-second .descr')
+            hideDescr('.container__wrapper-second .title')
+            hideElement('.container__wrapper-second .subtitle', 'fadeOut', 'fadeIn', 200)
         }
     }
 
