@@ -34,29 +34,29 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         changeActiveElem();
         changeActiveContainer();
-    }, 2000);
+    }, 6000);
 
-    function showElement(selector, startInterval = 0) {
+    function showElement(selector, firstAnimation, secondAnimation, startInterval = 0) {
         const subtitles = document.querySelectorAll(selector)
         let interval = startInterval;
 
         subtitles.forEach(item => {
             setTimeout(() => {
-                item.classList.add('animate__fadeInRight')
-                item.classList.remove('animate__fadeOutLeft');
+                item.classList.add(firstAnimation)
+                item.classList.remove(secondAnimation);
             }, interval)
             interval += 200
         })
     }
 
-    function hideElement(selector, startInterval = 0) {
+    function hideElement(selector, firstAnimation, secondAnimation, startInterval = 0) {
         const subtitles = document.querySelectorAll(selector)
         let interval = startInterval;
 
         subtitles.forEach(item => {
             setTimeout(() => {
-                item.classList.add('animate__fadeOutLeft')
-                item.classList.remove('animate__fadeInRight');
+                item.classList.add(firstAnimation)
+                item.classList.remove(secondAnimation);
             }, interval)
             interval += 200
         })
@@ -67,26 +67,78 @@ window.addEventListener('DOMContentLoaded', () => {
             firstContainer.classList.add('active')
             thirdContainer.classList.remove('active');
             
-            showElement('.container__wrapper-first .title')
-            showElement('.container__wrapper-first .subtitle', 200)
-            hideElement('.container__wrapper-third .title')
-            hideElement('.container__wrapper-third .subtitle', 200)
+            showElement('.container__wrapper-first .title', 'animate__fadeInRight', 'animate__fadeOutLeft')
+            showElement('.container__wrapper-first .subtitle', 'animate__fadeInRight', 'animate__fadeOutLeft', 200)
+
+            setTimeout(() => {
+                showElement('.container__wrapper-first .image', 'animate__jackInTheBox', 'animate__bounceOut')
+            }, 1500)
+
+            setTimeout(() => {
+                const images = document.querySelectorAll('.container__wrapper-first .image')
+                images.forEach(item => {
+                    item.classList.add('active')
+                })
+                images.forEach(item => {
+                    item.classList.add('animate__bounceOut')
+                    item.classList.remove('animate__jackInTheBox');
+                })
+            }, 5000)
+            
+            hideElement('.container__wrapper-third .title', 'animate__fadeOutLeft', 'animate__fadeInRight' )
+            hideElement('.container__wrapper-third .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
 
         } else if (tablet.classList.contains('active')) {
 
-            showElement('.container__wrapper-second .title')
-            showElement('.container__wrapper-second .subtitle', 200)
-            hideElement('.container__wrapper-first .title')
-            hideElement('.container__wrapper-first .subtitle', 200)
+            showElement('.container__wrapper-second .title', 'animate__fadeInRight', 'animate__fadeOutLeft')
+            showElement('.container__wrapper-second .subtitle', 'animate__fadeInRight', 'animate__fadeOutLeft', 200)
+
+            setTimeout(() => {
+                showElement('.container__wrapper-second .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
+            }, 1500)
+
+            setTimeout(() => {
+                const images = document.querySelectorAll('.container__wrapper-second .image')
+
+                images.forEach(item => {
+                    item.classList.add('active')
+                })
+
+                images.forEach(item => {
+                    item.classList.add('animate__bounceOut')
+                    item.classList.remove('animate__jackInTheBox');
+                })
+            }, 5000)
+
+            hideElement('.container__wrapper-first .title', 'animate__fadeOutLeft', 'animate__fadeInRight')
+            hideElement('.container__wrapper-first .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
 
         } else if (phone_1.classList.contains('active')) {
             thirdContainer.classList.add('active')
             secondContainer.classList.remove('active')
 
-            showElement('.container__wrapper-third .title')
-            showElement('.container__wrapper-third .subtitle', 200)
-            hideElement('.container__wrapper-second .title')
-            hideElement('.container__wrapper-second .subtitle', 200)
+            showElement('.container__wrapper-third .title', 'animate__fadeInRight', 'animate__fadeOutLeft')
+            showElement('.container__wrapper-third .subtitle', 'animate__fadeInRight', 'animate__fadeOutLeft', 200)
+
+            setTimeout(() => {
+                showElement('.container__wrapper-third .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
+            }, 1500)
+
+            setTimeout(() => {
+                const images = document.querySelectorAll('.container__wrapper-third .image')
+
+                images.forEach(item => {
+                    item.classList.add('active')
+                })
+
+                images.forEach(item => {
+                    item.classList.add('animate__bounceOut')
+                    item.classList.remove('animate__jackInTheBox');
+                })
+            }, 5000)
+
+            hideElement('.container__wrapper-second .title', 'animate__fadeOutLeft', 'animate__fadeInRight')
+            hideElement('.container__wrapper-second .subtitle', 'animate__fadeOutLeft', 'animate__fadeInRight', 200)
         }
     }
 

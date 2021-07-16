@@ -17,7 +17,7 @@
         left: 50%
         transform: translateX(-50%)
         opacity: 0
-        transition: opacity 2s
+        transition: opacity 2.5s
         &.active
             opacity: 1
     &__wrapper-second
@@ -28,7 +28,7 @@
         position: absolute
         left: 50%
         transform: translateX(-50%)
-        transition: opacity 0.5s
+        transition: opacity 2.5s
         &.active
             opacity: 1
     &__wrapper-third
@@ -39,7 +39,7 @@
         left: 50%
         transform: translateX(-50%)
         opacity: 0
-        transition: opacity 0.5s
+        transition: opacity 2.5s
         &.active
             opacity: 1
     &__logo
@@ -80,16 +80,16 @@
         transition: all 1s
         &.left
             left: 0
+            right: auto
             width: 285px
             transform: translate3d(-50%,-0%,0)
         &.right
             right: 0
-            left: unset
             width: 285px
             transform: translate3d(69%,-0%,0)
         &.active
-            left: 50%
-            transform: translate3d(-55%,-0%,0)
+            right: 50%
+            transform: translate3d(47%,-0%,0)
     &__img-gift
         position: absolute
         width: 329px
@@ -137,15 +137,16 @@
         position: absolute
         // top: 23%
         // left: 24%
-        top: 204px
+        top: 212px
         // left: 50%
         // transform: translate3d(-52%,-50%,0)
         z-index: 3
         transition: all 1s
         &.active
-            left: 50%
+            right: 50%
+            left: auto
             width: 522px
-            transform: translate3d(-52%,-0%,0)
+            transform: translate3d(46%,-0%,0)
         &.right
             right: 0
             width: 353px
@@ -153,7 +154,8 @@
         &.left
             width: 353px
             left: 0
-            transform: translate3d(-64%,-0%,0)
+            right: auto
+            transform: translate3d(-50%,0,0);
     &__img-darts
         width: 288px
         position: absolute
@@ -248,17 +250,18 @@
         position: absolute
         // left: 25%
         // top: 23%
-        top: 204px
+        top: 213px
         // left: 50%
         // transform: translate3d(-46%,-50%,0)
         width: 548px
-        z-index: 4
+        z-index: 5
         transition: all 1s
         &.active
-            transform: translate3d(-46%,-0%,0)
-            left: 50%
+            transform: translate3d(55%,0,0)
+            right: 50%
         &.left
-            left: 0;
+            left: 0
+            right: auto
             transform: translate3d(-15%,-0%,0)
             width: 245px
         &.right
@@ -267,7 +270,7 @@
             width: 245px
     &__img-phone-2
         position: absolute
-        top: 204px
+        top: 229px
         // left: 50%
         // transform: translate3d(-100%,-50%,0)
         // left: -2%
@@ -276,9 +279,10 @@
         z-index: 4
         transition: all 1s
         &.active
-            transform: translate3d(-100%,-0%,0)
-            left: 50%
+            transform: translate3d(0%,0,0)
+            right: 50%
         &.left
+            right: auto
             left: 0
             transform: translate3d(-69%,-0%,0)
             width: 214px
