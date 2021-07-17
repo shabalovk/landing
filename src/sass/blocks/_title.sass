@@ -15,11 +15,23 @@
     .title
         font-size: 26px
         transform: translateX(-39px)
+        &.fadeIn
+            animation: titleFadeIn1200 1s
+            opacity: 1
+        &.fadeOut
+            animation: titleFadeOut1200 1s
+            opacity: 0
 
 @media ( max-width: 871px )
     .title
         text-align: right
         transform: translateX(0)
+        &.fadeIn
+            animation: titleFadeInMob 1s
+            opacity: 1
+        &.fadeOut
+            animation: titleFadeOutMob 1s
+            opacity: 0
 
 @media (max-width: 605px)
     .title
@@ -31,7 +43,7 @@
 
 @keyframes titleFadeIn
     0%
-        transform: translateX(25%)
+        transform: translateX(100%)
         opacity: 0
     100%
         transform: translateX(-104px)
@@ -42,6 +54,39 @@
         transform: translateX(-104px)
         opacity: 1
     100%
-        transform: translateX(-25%)
+        transform: translateX(-100%)
+        opacity: 0
+
+
+@keyframes titleFadeIn1200
+    0%
+        transform: translateX(100%)
+        opacity: 0
+    100%
+        transform: translateX(-39px)
+        opacity: 1
+
+@keyframes titleFadeOut1200
+    0%
+        transform: translateX(-39px)
+        opacity: 1
+    100%
+        transform: translateX(-100%)
+        opacity: 0
+
+@keyframes titleFadeInMob
+    0%
+        transform: translateX(100%)
+        opacity: 0
+    100%
+        transform: translateX(0)
+        opacity: 1
+
+@keyframes titleFadeOutMob
+    0%
+        transform: translateX(0)
+        opacity: 1
+    100%
+        transform: translateX(-100%)
         opacity: 0
     

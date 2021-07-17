@@ -16,6 +16,12 @@
     .descr
         font-size: 31px
         transform: translate3d(88px,16px,0)
+        &.fadeIn
+            animation: descrFadeIn1200 1s
+            opacity: 1
+        &.fadeOut
+            animation: descrFadeOut1200 1s
+            opacity: 0
 
 @media (max-width: 871px)
     .descr
@@ -23,6 +29,12 @@
         margin-top: 20px
         transform: translate3d(0,0,0)
         font-size: 26px
+        &.fadeIn
+            animation: descrFadeInMob 1s
+            opacity: 1
+        &.fadeOut
+            animation: descrFadeOutMob 1s
+            opacity: 0
 
 @media (max-width: 605px) 
     .descr
@@ -31,7 +43,7 @@
 
 @keyframes descrFadeIn
     0%
-        transform: translate3d(35%, 16px, 0px)
+        transform: translate3d(100%, 16px, 0px)
         opacity: 0
     100%
         transform: translate3d(132px, 16px, 0px)
@@ -42,5 +54,38 @@
         transform: translate3d(132px, 16px, 0px)
         opacity: 1
     100%
-        transform: translate3d(-25%, 16px, 0px)
+        transform: translate3d(-100%, 16px, 0px)
         opacity: 0
+
+@keyframes descrFadeIn1200
+    0%
+        transform: translate3d(100%,16px,0)
+        opacity: 0
+    100%
+        transform: translate3d(88px,16px,0)
+        opacity: 1
+
+@keyframes descrFadeOut1200
+    0%
+        transform: translate3d(88px,16px,0)
+        opacity: 1
+    100%
+       transform: translate3d(-100%,16px,0)
+        opacity: 0
+
+@keyframes descrFadeInMob
+    0%
+        transform: translate3d(100%,0,0)
+        opacity: 0
+    100%
+        transform: translate3d(0,0,0)
+        opacity: 1
+
+@keyframes descrFadeOutMob
+    0%
+        transform: translate3d(0,0,0)
+        opacity: 1
+    100%
+        transform: translate3d(-100%,0,0)
+        opacity: 0
+    

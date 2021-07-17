@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         changeActiveElem();
         changeActiveContainer();
-    }, 2000);
+    }, 6000);
 
     function showElement(selector, firstAnimation, secondAnimation, startInterval = 0) {
         const subtitles = document.querySelectorAll(selector)
@@ -75,18 +75,22 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    function showDescr(selector) {
+    function showDescr(selector, interval = 0) {
         const item = document.querySelector(selector)
 
-        item.classList.add('fadeIn')
-        item.classList.remove('fadeOut');
+        setTimeout(() => {
+            item.classList.add('fadeIn')
+            item.classList.remove('fadeOut');
+        }, interval)
     }
 
-    function hideDescr(selector) {
+    function hideDescr(selector, interval = 0) {
         const item = document.querySelector(selector)
 
-        item.classList.add('fadeOut')
-        item.classList.remove('fadeIn');
+        setTimeout(() => {
+            item.classList.add('fadeOut')
+            item.classList.remove('fadeIn');
+        }, interval)
     }
 
     function changeActiveContainer() {
@@ -96,9 +100,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
             showDescr('.container__wrapper-first .title')
             showElement('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 200)
-            showDescr('.container__wrapper-first .descr')
+            showDescr('.container__wrapper-first .descr', 600)
+            setTimeout(() => {
+                showElement('.container__wrapper-first .image', 'animate__jackInTheBox', 'animate__bounceOut')
+            }, 1500)
 
-            hideDescr('.container__wrapper-third .descr')
+
+            setTimeout(() => {
+                const images = document.querySelectorAll('.container__wrapper-first .image')
+                images.forEach(item => {
+                    item.classList.add('active')
+                })
+                images.forEach(item => {
+                    item.classList.add('animate__bounceOut')
+                    item.classList.remove('animate__jackInTheBox');
+                })
+            }, 4500)
+            hideDescr('.container__wrapper-third .descr', 600)
             hideDescr('.container__wrapper-third .title')
             hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 200)
 
@@ -106,11 +124,28 @@ window.addEventListener('DOMContentLoaded', () => {
             secondContainer.classList.add('active')
             firstContainer.classList.remove('active')
 
-            showDescr('.container__wrapper-second .descr')
+            showDescr('.container__wrapper-second .descr', 600)
             showDescr('.container__wrapper-second .title')
             showElement('.container__wrapper-second .subtitle', 'fadeIn', 'fadeOut', 200)
 
-            hideDescr('.container__wrapper-first .descr')
+            setTimeout(() => {
+                showElement('.container__wrapper-second .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
+            }, 1500)
+
+            setTimeout(() => {
+                const images = document.querySelectorAll('.container__wrapper-second .image')
+
+                images.forEach(item => {
+                    item.classList.add('active')
+                })
+
+                images.forEach(item => {
+                    item.classList.add('animate__bounceOut')
+                    item.classList.remove('animate__jackInTheBox');
+                })
+            }, 4500)
+
+            hideDescr('.container__wrapper-first .descr', 600)
             hideDescr('.container__wrapper-first .title')
             hideElement('.container__wrapper-first .subtitle', 'fadeOut', 'fadeIn', 200)
 
@@ -118,11 +153,28 @@ window.addEventListener('DOMContentLoaded', () => {
             thirdContainer.classList.add('active')
             secondContainer.classList.remove('active')
 
-            showDescr('.container__wrapper-third .descr')
+            showDescr('.container__wrapper-third .descr', 600)
             showDescr('.container__wrapper-third .title')
             showElement('.container__wrapper-third .subtitle', 'fadeIn', 'fadeOut', 200)
 
-            hideDescr('.container__wrapper-second .descr')
+            setTimeout(() => {
+                showElement('.container__wrapper-third .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
+            }, 1500)
+
+            setTimeout(() => {
+                const images = document.querySelectorAll('.container__wrapper-third .image')
+
+                images.forEach(item => {
+                    item.classList.add('active')
+                })
+
+                images.forEach(item => {
+                    item.classList.add('animate__bounceOut')
+                    item.classList.remove('animate__jackInTheBox');
+                })
+            }, 4500)
+
+            hideDescr('.container__wrapper-second .descr', 600)
             hideDescr('.container__wrapper-second .title')
             hideElement('.container__wrapper-second .subtitle', 'fadeOut', 'fadeIn', 200)
         }

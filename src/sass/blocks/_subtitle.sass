@@ -63,15 +63,23 @@
         &_transperent-1
             color: transparent
             -webkit-text-stroke: 2px #ffffffe3
-            // transform: translateX(-65px)
+            transform: translateX(-65px)
+            &.fadeIn
+                animation: subtitleFadeInMob_1 1s
+            &.fadeOut
+                animation: subtitleFadeOutMob_1 1s
         &_transperent-2
             color: transparent
             -webkit-text-stroke: 2px #ffffffb2
-            // transform: translateX(-133px)
+            transform: translateX(-133px)
+            &.fadeIn
+                animation: subtitleFadeInMob_2 1s
+            &.fadeOut
+                animation: subtitleFadeOutMob_2 1s
 
 @keyframes subtitleFadeIn
     0%
-        transform: translateX(35%)
+        transform: translateX(100%)
         opacity: 0
     100%
         transform: translateX(0)
@@ -82,5 +90,40 @@
         transform: translateX(0)
         opacity: 1
     100%
-        transform: translateX(-35%)
+        transform: translateX(-100%)
         opacity: 0
+
+@keyframes subtitleFadeInMob_1
+    0%
+        transform: translateX(100%)
+        opacity: 0
+    100%
+        transform: translateX(-65px)
+        opacity: 1
+
+@keyframes subtitleFadeOutMob_1
+    0%
+        transform: translateX(-65px)
+        opacity: 1
+    100%
+        transform: translateX(-100%)
+        opacity: 0
+
+@keyframes subtitleFadeInMob_2
+    0%
+        transform: translateX(100%)
+        opacity: 0
+    100%
+        transform: translateX(-133px)
+        opacity: 1
+
+@keyframes subtitleFadeOutMob_2
+    0%
+        transform: translateX(-133px)
+        opacity: 1
+    100%
+        transform: translateX(-100%)
+        opacity: 0
+        
+        
+        
