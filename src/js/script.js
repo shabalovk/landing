@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 item.classList.remove('jackInTheBox');
             })
         }, 4000)
-        hideDescr('.container__wrapper-third .descr', 300)
+        hideDescr('.container__wrapper-third .descr', 400)
         hideDescr('.container__wrapper-third .title')
         hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 100)
 
@@ -174,7 +174,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     item.classList.remove('jackInTheBox');
                 })
             }, 4000)
-            hideDescr('.container__wrapper-third .descr', 300)
+            hideDescr('.container__wrapper-third .descr', 400)
             hideDescr('.container__wrapper-third .title')
             hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 100)
 
@@ -198,7 +198,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
             }, 4000)
 
-            hideDescr('.container__wrapper-first .descr', 300)
+            hideDescr('.container__wrapper-first .descr', 400)
             hideDescr('.container__wrapper-first .title')
             hideElement('.container__wrapper-first .subtitle', 'fadeOut', 'fadeIn', 100)
 
@@ -223,7 +223,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
             }, 4000)
             
-            hideDescr('.container__wrapper-second .descr', 300)
+            hideDescr('.container__wrapper-second .descr', 400)
             hideDescr('.container__wrapper-second .title')
             hideElement('.container__wrapper-second .subtitle', 'fadeOut', 'fadeIn', 100)
         }
