@@ -30,9 +30,50 @@ h1, h2, h3, h4, h5, h6
 
 .image
     opacity: 0
-    &.active
+    &.bounceOut
+        animation: bounceOutAnim 0.75s
+    &.jackInTheBox
         opacity: 1
+        animation: jackInTheBoxAnim 0.75s
 
+.imageMoving
+    animation: imageMoving 1s infinite
+
+@keyframes bounceOutAnim
+    0%
+        opacity: 1
+    20%
+        opacity: 1
+        transform: scale3d(.9,.9,.9)
+    50%,55%
+        opacity: 1
+        transform: scale3d(1.1,1.1,1.1)
+    100%
+        opacity: 0
+        transform: scale3d(.3,.3,.3)
+   
+@keyframes jackInTheBoxAnim
+    0%
+        opacity: 0
+        transform: scale(.1) rotate(30deg)
+        transform-origin: center bottom
+    50%
+        transform: rotate(-10deg)
+    70%
+        transform: rotate(3deg)
+    100%
+        opacity: 1
+        transform: scale(1)
+
+@keyframes imageMoving
+    0%
+        transform: translate3d(0,0,0)
+    30%
+        transform: translate3d(-2px,-2px,0)
+    70%
+        transform: translate3d(2px,2px,0)
+    100%
+        transform: translate3d(0,0,0)
 
 @import blocks/_container
 @import blocks/_subtitle

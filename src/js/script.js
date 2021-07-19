@@ -44,10 +44,40 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    setInterval(() => {
-        changeActiveElem();
-        changeActiveContainer();
-    }, 6000);
+    init();
+
+    function init() {
+        showElement('.container__wrapper-first .image__wrapper', 'imageMoving');
+        showElement('.container__wrapper-second .image__wrapper', 'imageMoving');
+        showElement('.container__wrapper-third .image__wrapper', 'imageMoving');
+
+        firstContainer.classList.add('active')
+        thirdContainer.classList.remove('active');
+
+        showDescr('.container__wrapper-first .title')
+        showSubtitle('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 100)
+        showDescr('.container__wrapper-first .descr', 300)
+        setTimeout(() => {
+            showElement('.container__wrapper-first .image', 'jackInTheBox', 'bounceOut')
+        }, 1200)
+
+
+        setTimeout(() => {
+            const images = document.querySelectorAll('.container__wrapper-first .image')
+            images.forEach(item => {
+                item.classList.add('bounceOut')
+                item.classList.remove('jackInTheBox');
+            })
+        }, 4000)
+        hideDescr('.container__wrapper-third .descr', 300)
+        hideDescr('.container__wrapper-third .title')
+        hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 100)
+
+        setInterval(() => {
+            changeActiveElem();
+            changeActiveContainer();
+        }, 5000);
+    }
 
     function showElement(selector, firstAnimation, secondAnimation, startInterval = 0) {
         const subtitles = document.querySelectorAll(selector)
@@ -56,9 +86,24 @@ window.addEventListener('DOMContentLoaded', () => {
         subtitles.forEach(item => {
             setTimeout(() => {
                 item.classList.add(firstAnimation)
-                item.classList.remove(secondAnimation);
+                if (secondAnimation) {
+                    item.classList.remove(secondAnimation);
+                }
             }, interval)
             interval += 200
+        })
+    }
+
+    function showSubtitle(selector, firstAnimation, secondAnimation, startInterval = 0) {
+        const subtitles = document.querySelectorAll(selector)
+        let interval = startInterval;
+
+        subtitles.forEach(item => {
+            setTimeout(() => {
+                item.classList.add(firstAnimation)
+                item.classList.remove(secondAnimation);
+            }, interval)
+            interval += 100
         })
     }
 
@@ -99,84 +144,72 @@ window.addEventListener('DOMContentLoaded', () => {
             thirdContainer.classList.remove('active');
 
             showDescr('.container__wrapper-first .title')
-            showElement('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 200)
-            showDescr('.container__wrapper-first .descr', 600)
+            showSubtitle('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 100)
+            showDescr('.container__wrapper-first .descr', 300)
             setTimeout(() => {
-                showElement('.container__wrapper-first .image', 'animate__jackInTheBox', 'animate__bounceOut')
-            }, 1500)
+                showElement('.container__wrapper-first .image', 'jackInTheBox', 'bounceOut')
+            }, 1200)
 
 
             setTimeout(() => {
                 const images = document.querySelectorAll('.container__wrapper-first .image')
                 images.forEach(item => {
-                    item.classList.add('active')
+                    item.classList.add('bounceOut')
+                    item.classList.remove('jackInTheBox');
                 })
-                images.forEach(item => {
-                    item.classList.add('animate__bounceOut')
-                    item.classList.remove('animate__jackInTheBox');
-                })
-            }, 4500)
-            hideDescr('.container__wrapper-third .descr', 600)
+            }, 4000)
+            hideDescr('.container__wrapper-third .descr', 300)
             hideDescr('.container__wrapper-third .title')
-            hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 200)
+            hideElement('.container__wrapper-third .subtitle', 'fadeOut', 'fadeIn', 100)
 
         } else if (tablet.classList.contains('active')) {
             secondContainer.classList.add('active')
             firstContainer.classList.remove('active')
 
-            showDescr('.container__wrapper-second .descr', 600)
+            showDescr('.container__wrapper-second .descr', 300)
             showDescr('.container__wrapper-second .title')
-            showElement('.container__wrapper-second .subtitle', 'fadeIn', 'fadeOut', 200)
+            showSubtitle('.container__wrapper-second .subtitle', 'fadeIn', 'fadeOut', 100)
 
             setTimeout(() => {
-                showElement('.container__wrapper-second .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
-            }, 1500)
+                showElement('.container__wrapper-second .image', 'jackInTheBox', 'fadeOutLeft');
+            }, 1000)
 
             setTimeout(() => {
                 const images = document.querySelectorAll('.container__wrapper-second .image')
-
                 images.forEach(item => {
-                    item.classList.add('active')
+                    item.classList.add('bounceOut')
+                    item.classList.remove('jackInTheBox');
                 })
+            }, 4000)
 
-                images.forEach(item => {
-                    item.classList.add('animate__bounceOut')
-                    item.classList.remove('animate__jackInTheBox');
-                })
-            }, 4500)
-
-            hideDescr('.container__wrapper-first .descr', 600)
+            hideDescr('.container__wrapper-first .descr', 300)
             hideDescr('.container__wrapper-first .title')
-            hideElement('.container__wrapper-first .subtitle', 'fadeOut', 'fadeIn', 200)
+            hideElement('.container__wrapper-first .subtitle', 'fadeOut', 'fadeIn', 100)
 
         } else if (phone_1.classList.contains('active')) {
             thirdContainer.classList.add('active')
             secondContainer.classList.remove('active')
 
-            showDescr('.container__wrapper-third .descr', 600)
+            showDescr('.container__wrapper-third .descr', 300)
             showDescr('.container__wrapper-third .title')
-            showElement('.container__wrapper-third .subtitle', 'fadeIn', 'fadeOut', 200)
+            showSubtitle('.container__wrapper-third .subtitle', 'fadeIn', 'fadeOut', 100)
 
             setTimeout(() => {
-                showElement('.container__wrapper-third .image', 'animate__jackInTheBox', 'animate__fadeOutLeft')
-            }, 1500)
+                showElement('.container__wrapper-third .image', 'jackInTheBox', 'fadeOutLeft');
+                showElement('.container__wrapper-third .image__wrapper', 'imageMoving')
+            }, 1000)
 
             setTimeout(() => {
                 const images = document.querySelectorAll('.container__wrapper-third .image')
-
                 images.forEach(item => {
-                    item.classList.add('active')
+                    item.classList.add('bounceOut')
+                    item.classList.remove('jackInTheBox');
                 })
-
-                images.forEach(item => {
-                    item.classList.add('animate__bounceOut')
-                    item.classList.remove('animate__jackInTheBox');
-                })
-            }, 4500)
-
-            hideDescr('.container__wrapper-second .descr', 600)
+            }, 4000)
+            
+            hideDescr('.container__wrapper-second .descr', 300)
             hideDescr('.container__wrapper-second .title')
-            hideElement('.container__wrapper-second .subtitle', 'fadeOut', 'fadeIn', 200)
+            hideElement('.container__wrapper-second .subtitle', 'fadeOut', 'fadeIn', 100)
         }
     }
 

@@ -1,7 +1,63 @@
+@keyframes animationRight
+    0%
+        opacity: 1
+    10%
+        opacity: 0
+    90%
+        opacity: 1
+    100%
+        opacity: 1    
+
+    
 .mobile
     display: none
 .desctop
     display: block
+
+.gift
+    width: 329px
+.cake
+    width: 292px
+.crown
+    width: 237px
+.feedback
+    width: 424px
+.hand
+    width: 275px
+.powder_pink_1
+    width: 775px
+.powder_pink_2
+    width: 562px
+
+.darts
+    width: 288px
+.money
+    width: 350px
+.coins
+    width: 154px
+.diamond
+    width: 116px
+.powder_blue_1
+    width: 433px
+.powder_blue_2
+    width: 542px
+
+.bag
+    width: 400px
+.zen
+    width: 307px
+.table
+    width: 264px
+.palm
+    width: 394px
+.hammock
+    width: 374px
+.powder_pur_1
+    width: 512px
+.powder_pur_2
+    width: 539px
+.powder_pur_3
+    width: 468px
 
 .container
     // height: 100vh
@@ -82,16 +138,16 @@
         // top: 19%
         // left: 14%
         z-index: 3
-        transition: all 1s
+        transition: all 1s 
         &.left
             left: 0
             width: 285px
             transform: translate3d(-50%,-0%,0)
         &.right
-            right: 0
-            left: unset
+            left: 100%
             width: 285px
-            transform: translate3d(69%,-0%,0)
+            transform: translate3d(-39%,-0%,0)
+            animation: animationRight 3s 
         &.active
             left: 50%
             transform: translate3d(-55%,-0%,0)
@@ -146,15 +202,16 @@
         // left: 50%
         // transform: translate3d(-52%,-50%,0)
         z-index: 3
-        transition: all 1s
+        transition: all 1s 
         &.active
             left: 50%
             width: 522px
             transform: translate3d(-52%,-0%,0)
         &.right
-            right: 0
+            left: 100%
             width: 353px
-            transform: translate3d(64%,-0%,0)
+            transform: translate3d(-42%,-0%,0)
+            animation: animationRight 3s
         &.left
             width: 353px
             left: 0
@@ -258,7 +315,7 @@
         // transform: translate3d(-46%,-50%,0)
         width: 548px
         z-index: 4
-        transition: all 1s
+        transition: all 1s 
         &.active
             transform: translate3d(-46%,-0%,0)
             left: 50%
@@ -267,9 +324,10 @@
             transform: translate3d(-15%,-0%,0)
             width: 245px
         &.right
-            right: 0
-            transform: translate3d(77%,-0%,0)
+            left: 100%
+            transform: translate3d(-18%,-0%,0)
             width: 245px
+            animation: animationRight 3s
     &__img-phone-2
         position: absolute
         top: 204px
@@ -279,7 +337,7 @@
         // top: 25%
         width: 519px
         z-index: 4
-        transition: all 1s
+        transition: all 1s 
         &.active
             transform: translate3d(-100%,-0%,0)
             left: 50%
@@ -288,9 +346,10 @@
             transform: translate3d(-69%,-0%,0)
             width: 214px
         &.right
-            right: 0
-            transform: translate3d(36%,-0%,0)
+            left: 100%
+            transform: translate3d(-65%,-0%,0)
             width: 260px
+            animation: animationRight 3s
     &__img-bag
         position: absolute
         top: 10%
@@ -321,19 +380,19 @@
         top: 36%
         left: 53%
         z-index: 3
-    &__img-powder-pur-1
+    &__img-powder_pur_1
         position: absolute
         top: 6%
         left: 10%
         width: 512px
         z-index: 1
-    &__img-powder_pur-2
+    &__img-powder_pur_2
         position: absolute
         top: 7%
         left: 49%
         width: 539px
         z-index: 1
-    &__img-powder-pur-3
+    &__img-powder_pur_3
         position: absolute
         top: 34%
         left: -14%
@@ -357,6 +416,52 @@
             outline: none
 
 @media ( max-width: 1276px )
+
+    .gift
+        width: 263px
+    .cake
+        width: 233px
+    .crown
+        width: 189px
+    .feedback
+        width: 339px
+    .hand
+        width: 220px
+    .powder_pink_1
+        width: 620px
+    .powder_pink_2
+        width: 449px
+
+    .darts
+        width: 230px
+    .money
+        width: 280px
+    .coins
+        width: 123px
+    .diamond
+        width: 93px
+    .powder_blue_1
+        width: 433px
+    .powder_blue_2
+        width: 433px
+
+    .bag
+        width: 320px
+    .zen
+        width: 245px
+    .table
+        width: 211px
+    .palm
+        width: 315px
+    .hammock
+        width: 299px
+    .powder_pur_1
+        width: 409px
+    .powder_pur_2
+        width: 431px
+    .powder_pur_3
+        width: 374px
+
     .container
         height: 100vh
         &__message
@@ -446,11 +551,11 @@
             width: 315px
         &__img-bag
             width: 320px
-        &__img-powder_pur-2
+        &__img-powder_pur_2
             width: 431px
-        &__img-powder-pur-1
+        &__img-powder_pur_1
             width: 409px
-        &__img-powder-pur-3
+        &__img-powder_pur_3
             width: 374px
         &__btn
             height: 63px
@@ -458,6 +563,52 @@
             font-size: 28px
 
 @media ( max-width: 871px )
+
+    .gift
+        width: 197px
+    .cake
+        width: 174px
+    .crown
+        width: 141px
+    .feedback
+        width: 254px
+    .hand
+        width: 165px
+    .powder_pink_1
+        width: 465px
+    .powder_pink_2
+        width: 336px
+
+    .darts
+        width: 172px
+    .money
+        width: 210px
+    .coins
+        width: 92px
+    .diamond
+        width: 70px
+    .powder_blue_1
+        width: 325px
+    .powder_blue_2
+        width: 325px
+
+    .bag
+        width: 240px
+    .zen
+        width: 184px
+    .table
+        width: 158px
+    .palm
+        width: 236px
+    .hammock
+        width: 224px
+    .powder_pur_1
+        width: 307px
+    .powder_pur_2
+        width: 323px
+    .powder_pur_3
+        width: 280px
+
     .container
         &__wrapper-first
             width: 524px
@@ -469,8 +620,10 @@
             top: 24px
             right: 36px
         &__img-laptop
-            width: 385px
+            &.active
+                width: 380px
             &.left
+                left: -30%
                 width: 230px
                 transform: translate3d(-100%,0,0)
             &.right
@@ -491,11 +644,13 @@
         &__img-powder_pink_2
             width: 336px
         &__img-tablet
-            width: 312px
+            &.active
+                width: 312px
             &.right
                 width: 247px
                 transform: translate3d(100%,0,0)
             &.left
+                left: -70%
                 width: 247px
                 transform: translate3d(-100%,0,0)
         &__img-darts
@@ -518,6 +673,7 @@
             &.right
                 transform: translate3d(100%,0,0)
             &.left
+                left: -70%
                 transform: translate3d(-100%,0,0)
         &__img-phone-2
             width: 311px
@@ -526,6 +682,7 @@
             &.right
                 transform: translate3d(100%,0,0)
             &.left
+                left: -70%
                 transform: translate3d(-100%,0,0)
         &__img-table
             width: 158px
@@ -537,11 +694,11 @@
             width: 236px
         &__img-bag
             width: 240px
-        &__img-powder_pur-2
+        &__img-powder_pur_2
             width: 323px
-        &__img-powder-pur-1
+        &__img-powder_pur_1
             width: 307px
-        &__img-powder-pur-3
+        &__img-powder_pur_3
             width: 280px
 
 @media (max-width: 605px)
@@ -549,7 +706,33 @@
         display: block
     .desctop
         display: none
-        transform-style: 
+
+    .gift
+        width: 142px
+    .cake
+        width: 126px
+    .crown
+        width: 141px
+    .feedback
+        width: 245px
+
+    .money
+        width: 236px
+    .coins
+        width: 70px
+    .diamond
+        width: 60px
+
+    .bag
+        width: 195px
+    .zen
+        width: 176px
+    .table
+        width: 137px
+    .palm
+        width: 239px
+    .hammock
+        width: 202px
 
     .container
         height: 844px
@@ -631,12 +814,12 @@
             &.active
                 transform: translate3d(-79%,0,0)
             &.right
-                left: unset
-        &__img-powder-pur-1
+                left: 100%
+        &__img-powder_pur_1
             display: none
-        &__img-powder_pur-2
+        &__img-powder_pur_2
             display: none
-        &__img-powder-pur-3
+        &__img-powder_pur_3
             display: none
         &__img-table
             width: 137px
