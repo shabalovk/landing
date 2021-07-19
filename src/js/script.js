@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('.modal');
     const modalInner = document.querySelector('.modal__window');
     const closeModal = document.querySelector('.modal__close');
+    const form = document.querySelector('.modal__form');
 
     const tablet = document.querySelector('.container__img-tablet');
     const laptop = document.querySelector('.container__img-laptop');
@@ -13,10 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const firstContainer = document.querySelector('.container__wrapper-first');
     const secondContainer = document.querySelector('.container__wrapper-second');
     const thirdContainer = document.querySelector('.container__wrapper-third');
-
-    const subtitle = document.querySelector('.subtitle')
-
-    console.log(document.querySelector('.container__wrapper-first .subtitle'));
     
     openModalBtn.addEventListener('click', () => {
         modal.style.display = "block";
@@ -45,6 +42,25 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     init();
+
+    $('[data-phone]').inputmask({
+        mask: ["+9 (999) 999 9999","+99 999 999 9999","+999 (999) 999 9999"],
+        clearIncomplete: true,
+        showMaskOnHover: false,
+        showMaskOnFocus: true,
+        keepStatic: true
+    });
+
+    // form.addEventListener('submit', (e) => {
+    //     e.preventDefault();
+
+    //     fetch('/check', {
+    //         method: 'POST',
+    //         body: new FormData(form)
+    //     }).then(res => {
+
+    //     })
+    // })
 
     function init() {
         showElement('.container__wrapper-first .image__wrapper', 'imageMoving');
