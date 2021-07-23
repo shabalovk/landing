@@ -3,8 +3,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const openModalBtn = document.querySelector('.container__btn');
     const modal = document.querySelector('.modal');
     const modalInner = document.querySelector('.modal__window');
-    const closeModal = document.querySelector('.modal__close');
     const form = document.querySelector('.modal__form');
+    const formBtn = document.querySelector('.modal__footer-btn');
+    const modalThanks = document.querySelector('.modal__thanks')
 
     const tablet = document.querySelector('.container__img-tablet');
     const laptop = document.querySelector('.container__img-laptop');
@@ -15,52 +16,173 @@ window.addEventListener('DOMContentLoaded', () => {
     const secondContainer = document.querySelector('.container__wrapper-second');
     const thirdContainer = document.querySelector('.container__wrapper-third');
     
+    const inputColl = document.querySelectorAll('[data-form]');
+
     openModalBtn.addEventListener('click', () => {
-        modal.style.display = "block";
-        setTimeout(() => {
-            modalInner.classList.add('active');
-            modal.classList.add('active');
-        }, 0)
+        renderFormModal();
     })
 
-    closeModal.addEventListener('click', () => {
-        modalInner.classList.remove('active');
-        modal.classList.remove('active')
-        setTimeout(() => {
-            modal.style.display = "none"
-        }, 350)
-    })
+    function renderFormModal() {
+        let modal = $('.modal.template').clone();
+        modal.removeClass('template');
+        modal.addClass('form');
 
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modalInner.classList.remove('active');
-            modal.classList.remove('active')
-            setTimeout(() => {
-                modal.style.display = "none"
-            }, 350)
+        $('body').prepend(modal);
+
+        modal.css('display', 'block')
+        setTimeout(() => {
+            modal.addClass('active')
+            $('.modal.form .modal__window').addClass('active')
+        }, 20)
+
+        let modalForm = $('.modal__form-wrapper.template').clone();
+        modalForm.removeClass('template');
+
+        
+        $('.modal.form .modal__body').html(modalForm);
+    }
+
+    function closeModal(elem) {
+        let modal = $(elem).closest('.modal');
+
+        if (modal) {
+            modal.animate({
+                opacity: 0
+            }, 50, () => {
+                modal.remove();
+            });
         }
-    })
+    }
+
+    $('body').on('click', '.modal__close', function (e) {
+        closeModal(this)
+    });
+
+    $('body').on('click', '.modal', function (e) {
+        let modal = this.closest('.modal');
+        if (e.target === modal) {
+            closeModal(this)
+        }
+    });
+
+    $('body').on('submit', '.modal__form', function (e) {
+        e.preventDefault();
+        submitForm()
+    });
+
+    // modal.addEventListener('click', (e) => {
+    //     if (e.target === modal) {
+    //         modalInner.classList.remove('active');
+    //         modal.classList.remove('active')
+    //         setTimeout(() => {
+    //             modal.style.display = "none"
+    //         }, 350)
+    //     }
+    // })
 
     init();
 
-    $('[data-phone]').inputmask({
+    $('[data-form="phone"]').inputmask({
         mask: ["+9 (999) 999 9999","+99 999 999 9999","+999 (999) 999 9999"],
-        clearIncomplete: true,
         showMaskOnHover: false,
         showMaskOnFocus: true,
         keepStatic: true
     });
 
-    // form.addEventListener('submit', (e) => {
-    //     e.preventDefault();
+    inputColl.forEach(input => {
+        input.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/[а-яА-ЯЁё-і]/g, '');
+            e.target.value = value
+        })
+    })
 
-    //     fetch('/check', {
-    //         method: 'POST',
-    //         body: new FormData(form)
-    //     }).then(res => {
+    function submitForm(e) {
+        e.preventDefault();
+        let validationErr = 0
 
-    //     })
-    // })
+        modalThanks.classList.remove('active')
+
+        inputColl.forEach(input => {
+            input.classList.remove('validation__input');
+            input.nextElementSibling.classList.remove('active')
+
+            currentInputName = input.getAttribute('data-form');
+
+            if (currentInputName === "password") {
+                if (input.value.length < 6) {
+                    const span = input.nextElementSibling;
+                    span.textContent = 'Минимальная длина пароля 6 символов';
+                    span.classList.add('active')
+                    input.classList.add('validation__input')
+
+                    validationErr++
+                }
+            }
+            if (currentInputName === "password-repeat") {
+                if (input.value !== document.querySelector('[data-form="password"]').value) {
+                    const span = input.nextElementSibling;
+                    span.textContent = 'Пароли не совпадают';
+                    span.classList.add('active')
+                    input.classList.add('validation__input')
+
+                    validationErr++
+                }
+            }
+            if (currentInputName === "phone" && input.value.replace(/\D+/g,"").length > 0) {
+                console.log(true);
+
+                if (input.value.replace(/\D+/g,"").length < 11) {
+                    const span = input.nextElementSibling;
+                    span.textContent = 'Минимальная длина номера телефона 11 символов';
+                    span.classList.add('active')
+                    input.classList.add('validation__input')
+
+                    validationErr++
+                }
+                if (input.value.replace(/\D+/g,"").length > 13) {
+                    const span = input.nextElementSibling;
+                    span.textContent = 'Максимальная длина номера телефона 13 символов';
+                    span.classList.add('active')
+                    input.classList.add('validation__input')
+
+                    validationErr++
+                }
+            }
+        })
+
+        if (validationErr !== 0) {
+            return
+        } 
+
+        formBtn.setAttribute('disabled', 'true');
+        formBtn.classList.add('disabled');
+
+        const dataObj = {
+            email: document.querySelector('[data-form="email"]').value,
+            password: document.querySelector('[data-form="password"]').value,
+            phone: document.querySelector('[data-form="phone"]').value.replace(/\D+/g,""),
+        }
+
+        fetch('/check', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(dataObj)
+        }).then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        }).then(res => {
+            modalThanks.classList.add('active')
+            inputColl.forEach(input => {
+                input.value = ''
+            })
+        }).finally(res => {
+            formBtn.removeAttribute('disabled');
+            formBtn.classList.remove('disabled');
+        })
+    }
 
     function init() {
         showElement('.container__wrapper-first .image__wrapper', 'imageMoving');
@@ -277,15 +399,4 @@ window.addEventListener('DOMContentLoaded', () => {
             tablet.classList.add('right')
         }
     }
-
-    // $('.container__carousel').slick({
-    //     centerMode: true,
-    //     slidesToShow: 1,
-    //     arrows: false,
-    //     autoplay: true,
-    //     autoplaySpeed: 5000,
-    //     draggable: false,
-    //     pauseOnFocus: false,
-    //     pauseOnHover: false
-    // });
 })
