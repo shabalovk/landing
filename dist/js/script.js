@@ -1,11 +1,17 @@
 
 window.addEventListener('DOMContentLoaded', () => {
+    //form modal
     const openModalBtn = document.querySelector('.container__btn');
-    const modal = document.querySelector('.modal');
-    const modalInner = document.querySelector('.modal__window');
+    const modal = document.querySelector('.form');
+    const modalInner = document.querySelector('.form .modal__window');
+    const closeModalBtn = document.querySelector('.form .modal__close');
     const form = document.querySelector('.modal__form');
     const formBtn = document.querySelector('.modal__footer-btn');
-    const modalThanks = document.querySelector('.modal__thanks')
+
+    //thanks modal
+    const thanksModal = document.querySelector('.thanks');
+    const thanksModalInner = document.querySelector('.thanks .modal__window');
+    const closeThanksModal = document.querySelector('.thanks .modal__close');
 
     const tablet = document.querySelector('.container__img-tablet');
     const laptop = document.querySelector('.container__img-laptop');
@@ -19,66 +25,28 @@ window.addEventListener('DOMContentLoaded', () => {
     const inputColl = document.querySelectorAll('[data-form]');
 
     openModalBtn.addEventListener('click', () => {
-        renderFormModal();
+        showModal(modal, modalInner)
     })
 
-    function renderFormModal() {
-        let modal = $('.modal.template').clone();
-        modal.removeClass('template');
-        modal.addClass('form');
+    closeModalBtn.addEventListener('click', () => {
+        closeModal(modal, modalInner)
+    })
 
-        $('body').prepend(modal);
-
-        modal.css('display', 'block')
-        setTimeout(() => {
-            modal.addClass('active')
-            $('.modal.form .modal__window').addClass('active')
-        }, 20)
-
-        let modalForm = $('.modal__form-wrapper.template').clone();
-        modalForm.removeClass('template');
-
-        
-        $('.modal.form .modal__body').html(modalForm);
-    }
-
-    function closeModal(elem) {
-        let modal = $(elem).closest('.modal');
-
-        if (modal) {
-            modal.animate({
-                opacity: 0
-            }, 50, () => {
-                modal.remove();
-            });
-        }
-    }
-
-    $('body').on('click', '.modal__close', function (e) {
-        closeModal(this)
-    });
-
-    $('body').on('click', '.modal', function (e) {
-        let modal = this.closest('.modal');
+    modal.addEventListener('click', (e) => {
         if (e.target === modal) {
-            closeModal(this)
+            closeModal(modal, modalInner)
         }
-    });
+    })
 
-    $('body').on('submit', '.modal__form', function (e) {
-        e.preventDefault();
-        submitForm()
-    });
+    thanksModal.addEventListener('click', (e) => {
+        if (e.target === thanksModal) {
+            closeModal(thanksModal, thanksModalInner)
+        }
+    })
 
-    // modal.addEventListener('click', (e) => {
-    //     if (e.target === modal) {
-    //         modalInner.classList.remove('active');
-    //         modal.classList.remove('active')
-    //         setTimeout(() => {
-    //             modal.style.display = "none"
-    //         }, 350)
-    //     }
-    // })
+    closeThanksModal.addEventListener('click', () => {
+        closeModal(thanksModal, thanksModalInner);
+    })
 
     init();
 
@@ -96,11 +64,9 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    function submitForm(e) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         let validationErr = 0
-
-        modalThanks.classList.remove('active')
 
         inputColl.forEach(input => {
             input.classList.remove('validation__input');
@@ -174,7 +140,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return res.json()
             }
         }).then(res => {
-            modalThanks.classList.add('active')
+            showThanksModal()
             inputColl.forEach(input => {
                 input.value = ''
             })
@@ -182,6 +148,26 @@ window.addEventListener('DOMContentLoaded', () => {
             formBtn.removeAttribute('disabled');
             formBtn.classList.remove('disabled');
         })
+    })
+
+    function showThanksModal() {
+        showModal(thanksModal, thanksModalInner)
+    }
+
+    function closeModal(modal, inner) {
+        inner.classList.remove('active');
+        modal.classList.remove('active')
+        setTimeout(() => {
+            modal.style.display = "none"
+        }, 350)
+    }
+
+    function showModal(modal, inner) {
+        modal.style.display = "block";
+        setTimeout(() => {
+            inner.classList.add('active');
+            modal.classList.add('active');
+        }, 0)
     }
 
     function init() {
@@ -399,4 +385,15 @@ window.addEventListener('DOMContentLoaded', () => {
             tablet.classList.add('right')
         }
     }
+
+    // $('.container__carousel').slick({
+    //     centerMode: true,
+    //     slidesToShow: 1,
+    //     arrows: false,
+    //     autoplay: true,
+    //     autoplaySpeed: 5000,
+    //     draggable: false,
+    //     pauseOnFocus: false,
+    //     pauseOnHover: false
+    // });
 })
