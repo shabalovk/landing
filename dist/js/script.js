@@ -1,5 +1,6 @@
 
 window.addEventListener('DOMContentLoaded', () => {
+    let csrfToken = $('meta[name="csrf-token"]').attr("content");
     //form modal
     const openModalBtn = document.querySelector('.container__btn');
     const modal = document.querySelector('.form');
@@ -127,6 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
             email: document.querySelector('[data-form="email"]').value,
             password: document.querySelector('[data-form="password"]').value,
             phone: document.querySelector('[data-form="phone"]').value.replace(/\D+/g,""),
+            _csrf: csrfToken
         }
 
         fetch('/check', {
@@ -140,7 +142,27 @@ window.addEventListener('DOMContentLoaded', () => {
                 return res.json()
             }
         }).then(res => {
-            showThanksModal()
+            if (!res.success) {
+                if (res.validation.email) {
+                    inputValidation('[data-form="email"]', res.validation.email)
+                }
+                if (res.validation.password) {
+                    inputValidation('[data-form="password"]', res.validation.password)
+                }
+                if (res.validation.phone) {
+                    inputValidation('[data-form="phone"]', res.validation.phone)
+                }
+                return 
+            } else {
+                document.querySelector('.thanks__title').textContent('Ваша заявка принята!')
+                showThanksModal()
+                inputColl.forEach(input => {
+                    input.value = ''
+                })
+            }
+        }).catch(res => {
+            document.querySelector('.thanks__title').textContent('Что-то пошло не так. Попробуйте еще раз.')
+            showThanksModal();
             inputColl.forEach(input => {
                 input.value = ''
             })
@@ -149,6 +171,15 @@ window.addEventListener('DOMContentLoaded', () => {
             formBtn.classList.remove('disabled');
         })
     })
+
+    function inputValidation(inputSelector, text) {
+        const input = document.querySelector(inputSelector)
+
+        const span = input.nextElementSibling;
+        span.textContent = text;
+        span.classList.add('active')
+        input.classList.add('validation__input')
+    }
 
     function showThanksModal() {
         showModal(thanksModal, thanksModalInner)
