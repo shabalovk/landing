@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return res.json()
             }
         }).then(res => {
-            if (!res.success) {
+            if (!res.success && res.validation.lenght > 0) {
                 if (res.validation.email) {
                     inputValidation('[data-form="email"]', res.validation.email)
                 }
