@@ -153,7 +153,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     inputValidation('[data-form="phone"]', res.validation.phone)
                 }
                 return 
-            } else {
+            } 
+            if (res.success) {
                 document.querySelector('.thanks__title').textContent('Ваша заявка принята!')
                 showThanksModal()
                 inputColl.forEach(input => {
