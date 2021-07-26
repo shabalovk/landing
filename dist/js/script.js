@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return res.json()
             }
         }).then(res => {
-            if (!res.success) {
+            if (!res.success && res.validation.lenght > 0) {
                 if (res.validation.email) {
                     inputValidation('[data-form="email"]', res.validation.email)
                 }
@@ -153,7 +153,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     inputValidation('[data-form="phone"]', res.validation.phone)
                 }
                 return 
-            } else {
+            } 
+            if (res.success) {
                 document.querySelector('.thanks__title').textContent('Ваша заявка принята!')
                 showThanksModal()
                 inputColl.forEach(input => {
@@ -202,23 +203,23 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function init() {
-        showElement('.container__wrapper-first .image__wrapper', 'imageMoving');
-        showElement('.container__wrapper-second .image__wrapper', 'imageMoving');
-        showElement('.container__wrapper-third .image__wrapper', 'imageMoving');
+        showElement('.first .image__wrapper', 'imageMoving');
+        showElement('.second .image__wrapper', 'imageMoving');
+        showElement('.third .image__wrapper', 'imageMoving');
 
         firstContainer.classList.add('active')
         thirdContainer.classList.remove('active');
 
-        showDescr('.container__wrapper-first .title')
-        showSubtitle('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 100)
-        showDescr('.container__wrapper-first .descr', 300)
+        // showDescr('.container__wrapper-first .title')
+        // showSubtitle('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 100)
+        // showDescr('.container__wrapper-first .descr', 300)
         setTimeout(() => {
-            showElement('.container__wrapper-first .image', 'jackInTheBox', 'bounceOut')
+            showElement('.first .image', 'jackInTheBox', 'bounceOut')
         }, 1200)
 
 
         setTimeout(() => {
-            const images = document.querySelectorAll('.container__wrapper-first .image')
+            const images = document.querySelectorAll('.first .image')
             images.forEach(item => {
                 item.classList.add('bounceOut')
                 item.classList.remove('jackInTheBox');
@@ -302,12 +303,12 @@ window.addEventListener('DOMContentLoaded', () => {
             showSubtitle('.container__wrapper-first .subtitle', 'fadeIn', 'fadeOut', 100)
             showDescr('.container__wrapper-first .descr', 300)
             setTimeout(() => {
-                showElement('.container__wrapper-first .image', 'jackInTheBox', 'bounceOut')
+                showElement('.first .image', 'jackInTheBox', 'bounceOut')
             }, 1200)
 
 
             setTimeout(() => {
-                const images = document.querySelectorAll('.container__wrapper-first .image')
+                const images = document.querySelectorAll('.first .image')
                 images.forEach(item => {
                     item.classList.add('bounceOut')
                     item.classList.remove('jackInTheBox');
@@ -326,11 +327,11 @@ window.addEventListener('DOMContentLoaded', () => {
             showSubtitle('.container__wrapper-second .subtitle', 'fadeIn', 'fadeOut', 100)
 
             setTimeout(() => {
-                showElement('.container__wrapper-second .image', 'jackInTheBox', 'fadeOutLeft');
+                showElement('.second .image', 'jackInTheBox', 'fadeOutLeft');
             }, 1000)
 
             setTimeout(() => {
-                const images = document.querySelectorAll('.container__wrapper-second .image')
+                const images = document.querySelectorAll('.second .image')
                 images.forEach(item => {
                     item.classList.add('bounceOut')
                     item.classList.remove('jackInTheBox');
@@ -350,12 +351,11 @@ window.addEventListener('DOMContentLoaded', () => {
             showSubtitle('.container__wrapper-third .subtitle', 'fadeIn', 'fadeOut', 100)
 
             setTimeout(() => {
-                showElement('.container__wrapper-third .image', 'jackInTheBox', 'fadeOutLeft');
-                showElement('.container__wrapper-third .image__wrapper', 'imageMoving')
+                showElement('.third .image', 'jackInTheBox', 'fadeOutLeft');
             }, 1000)
 
             setTimeout(() => {
-                const images = document.querySelectorAll('.container__wrapper-third .image')
+                const images = document.querySelectorAll('.third .image')
                 images.forEach(item => {
                     item.classList.add('bounceOut')
                     item.classList.remove('jackInTheBox');
@@ -416,15 +416,4 @@ window.addEventListener('DOMContentLoaded', () => {
             tablet.classList.add('right')
         }
     }
-
-    // $('.container__carousel').slick({
-    //     centerMode: true,
-    //     slidesToShow: 1,
-    //     arrows: false,
-    //     autoplay: true,
-    //     autoplaySpeed: 5000,
-    //     draggable: false,
-    //     pauseOnFocus: false,
-    //     pauseOnHover: false
-    // });
 })

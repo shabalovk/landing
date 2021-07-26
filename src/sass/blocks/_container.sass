@@ -34,11 +34,11 @@
 .money
     width: 350px
 .coins
-    width: 154px
+    width: 174px
 .diamond
     width: 116px
 .powder_blue_1
-    width: 433px
+    width: 485px
 .powder_blue_2
     width: 542px
 
@@ -139,60 +139,68 @@
         // left: 14%
         z-index: 3
         transition: all 1s 
+        transform: translate3d(0,0,0)
         &.left
+            transform: translate3d(-50%,-0%,0)
             left: 0
             width: 285px
-            transform: translate3d(-50%,-0%,0)
         &.right
+            transform: translate3d(-39%,-0%,0)
             left: 100%
             width: 285px
-            transform: translate3d(-39%,-0%,0)
             animation: animationRight 3s 
         &.active
-            left: 50%
             transform: translate3d(-55%,-0%,0)
+            left: 50%
     &__img-gift
         position: absolute
         width: 329px
-        top: 69%
-        left: -9%
+        top: 449px
+        transform: translate3d(-164%, 33px, 0)
+        left: 50%
         z-index: 4
     &__img-cake
         position: absolute
         width: 292px
         // height: 438px
-        left: 49% 
-        top: 8%
+        left: 50%
+        top: 455px
+        transform: translate3d(-11px, -73%, 0)
         z-index: 2
     &__img-crown
         position: absolute
         width: 237px
-        top: 25%
-        left: 73%
+        top: 445px
+        left: 50%
+        transform: translate3d(91%, -107%, 0)
         z-index: 4
     &__img-feedback
         position: absolute
         width: 424px
-        left: 64%
-        top: 41%
+        left: 50%
+        top: 451px
+        transform: translate3d(27%, -56%, 10px)
         z-index: 3
     &__img-hand
         position: absolute
         width: 275px
-        top: 23%
-        left: -7%
+        left: 50%
+        top: 189px
+        transform: translate3d(-187%, 10%, 0)
         z-index: 2
     &__img-powder_pink_1
         position: absolute
         width: 775px
-        top: -12%
-        left: 29%
+        top: 450px
+        left: 50%
+        transform: translate3d(-25%, -56%, 0)
         z-index: 1
     &__img-powder_pink_2
         position: absolute
         width: 562px
-        top: 30%
-        left: -15%
+        top: 442px
+        left: 50%
+        transform: translate3d(-103%, -38%, 0)
         z-index: 1
     &__img-tablet
         position: absolute
@@ -203,6 +211,7 @@
         // transform: translate3d(-52%,-50%,0)
         z-index: 3
         transition: all 1s 
+        transform: translate3d(0,0,0)
         &.active
             left: 50%
             width: 522px
@@ -219,38 +228,44 @@
     &__img-darts
         width: 288px
         position: absolute
-        top: 21%
-        left: 8%
+        top: 440px
+        left: 50%
+        transform: translate3d(-147%, -85%, 0)
         z-index: 2
     &__img-money
         width: 350px
         position: absolute
-        top: 54%
-        left: 65%
+        top: 448px
+        left: 50%
+        transform: translate3d(43%, -25%, 0)
         z-index: 2
     &__img-coins
         z-index: 4
-        width: 154px
+        width: 174px
         position: absolute
-        top: 37%
-        left: 65%
+        top: 460px
+        left: 50%
+        transform: translate3d(87%, -91%, 0)
     &__img-diamond
         z-index: 3
         width: 116px
         position: absolute
-        top: 35%
-        left: 78%
+        top: 480px
+        left: 50%
+        transform: translate3d(250%, -166%, 0)
     &__img-powder_blue_1
         position: absolute
-        width: 542px
-        top: 29%
-        left: -5%
+        width: 485px
+        top: 457px
+        left: 50%
         z-index: 1
+        transform: translate3d(-114%, -34%, 0)
     &__img-powder_blue_2
         position: absolute
         width: 542px
-        top: 13%
-        left: 45%
+        top: 444px
+        left: 50%
+        transform: translate3d(-9%, -52%, 0)
         z-index: 1
     &__img-message-1
         width: 264px
@@ -267,8 +282,9 @@
     &__messages-wrapper
         position: absolute
         z-index: 4
-        top: 73%
-        left: 4%
+        top: 440px
+        left: 50%
+        transform: translate3d(-158%, 13%, 0)
     &__message
         width: 300px
         height: 75px
@@ -316,6 +332,7 @@
         width: 548px
         z-index: 4
         transition: all 1s 
+        transform: translate3d(0,0,0)
         &.active
             transform: translate3d(-46%,-0%,0)
             left: 50%
@@ -338,8 +355,9 @@
         width: 519px
         z-index: 4
         transition: all 1s 
+        transform: translate3d(0,0,0)
         &.active
-            transform: translate3d(-100%,-0%,0)
+            transform: translate3d(-100%,22px,0)
             left: 50%
         &.left
             left: 0
@@ -352,50 +370,58 @@
             animation: animationRight 3s
     &__img-bag
         position: absolute
-        top: 10%
-        left: 21%
+        top: 470px
+        left: 50%
+        transform: translate3d(-76%, -80%, 0)
         width: 400px
         z-index: 2
     &__img-zen
         position: absolute
-        top: 39%
-        left: -7%
+        top: 458px
+        left: 50%
+        transform: translate3d(-187%, -45%, 0)
         width: 307px
         z-index: 2
     &__img-table
         position: absolute
-        top: 78%
-        left: 11%
+        top: 453px
+        left: 50%
+        transform: translate3d(-159%, 29%, 0)
         width: 264px
         z-index: 5
     &__img-palm
         position: absolute
         width: 394px
-        top: 13%
-        left: 59%
+        top: 455px
+        left: 50%
+        transform: translate3d(24%, -75%, 0)
         z-index: 2
     &__img-hammock
         position: absolute
         width: 374px
-        top: 36%
-        left: 53%
+        top: 453px
+        left: 50%
+        transform: translate3d(7%, -42%, 0)
         z-index: 3
     &__img-powder_pur_1
         position: absolute
-        top: 6%
-        left: 10%
+        top: 427px
+        left: 50%
+        transform: translate3d(-80%, -60%, 0)
         width: 512px
         z-index: 1
     &__img-powder_pur_2
         position: absolute
-        top: 7%
-        left: 49%
+        top: 447px
+        left: 50%
+        transform: translate3d(-3%, -67%, 0)
         width: 539px
         z-index: 1
     &__img-powder_pur_3
         position: absolute
-        top: 34%
-        left: -14%
+        top: 455px
+        left: 50%
+        transform: translate3d(-141%, -44%, 0)
         width: 468px
         z-index: 1
     &__btn
@@ -465,11 +491,14 @@
     .container
         height: 100vh
         &__message
-            width: 240px
-            height: 60px
+            width: 229px
+            height: 54px
             border-radius: 13px
         &__message-title
             font-size: 11px
+        &__messages-wrapper
+            top: 418px
+            transform: translate3d(-168%,-11%,0)
         &__message-time
             font-size: 10px
         &__message-icon
@@ -490,24 +519,37 @@
             width: 478px
             top: 181px
             &.active
-                transform: translate3d(-50%,-0%,0)
+                transform: translate3d(-50%,-20px,0)
                 left: 50%
             &.left
                 width: 247px
         &__img-feedback
             width: 339px
+            top: 345px
+            transform: translate3d(31%,-56%,10px)
         &__img-hand
             width: 220px
+            top: 160px
+            transform: translate3d(-175%,10%,0)
         &__img-gift
             width: 263px
+            top: 352px
+            transform: translate3d(-155%,33px,0)
         &__img-crown
             width: 189px
+            top: 350px
+            left: 50%
+            transform: translate3d(102%,-107%,0)
         &__img-cake
             width: 233px
+            top: 349px
+            transform: translate3d(16px,-73%,0)
         &__img-powder_pink_1
             width: 620px
+            top: 363px
         &__img-powder_pink_2
             width: 449px
+            top: 363px
         &__img-tablet
             top: 187px
             &.active
@@ -517,16 +559,28 @@
             &.right
                 width: 274px
         &__img-darts
+            top: 412px
             width: 230px
+            transform: translate3d(-153%,-106%,0)
         &__img-coins
             width: 123px
+            top: 416px
+            transform: translate3d(79%,-139%,0)
         &__img-money
+            transform: translate3d(28%,-63%,0)
             width: 280px
+            top: 422px
         &__img-diamond
             width: 93px
+            top: 407px
+            transform: translate3d(214%,-222%,0)
         &__img-powder_blue_2
             width: 433px
+            top: 425px
+            transform: translate3d(-12%,-67%,0)
         &__img-powder_blue_1
+            transform: translate3d(-99%,-46%,0)
+            top: 428px
             width: 433px
         &__img-phone-1
             width: 438px
@@ -543,19 +597,33 @@
                 width: 245px
         &__img-table
             width: 211px
+            top: 426px
+            transform: translate3d(-149%,2%,0)
         &__img-zen
             width: 245px
+            top: 428px
+            transform: translate3d(-179%,-62%,0)
         &__img-hammock
             width: 299px
+            top: 420px
+            transform: translate3d(0%,-63%,0)
         &__img-palm
             width: 315px
+            top: 419px
+            transform: translate3d(15%,-89%,0)
         &__img-bag
             width: 320px
+            top: 432px
+            transform: translate3d(-72%,-95%,0)
         &__img-powder_pur_2
-            width: 431px
+            width: 422px  
+            transform: translate3d(-6%,-83%,0)
         &__img-powder_pur_1
+            transform: translate3d(-79%,-78%,0)
             width: 409px
         &__img-powder_pur_3
+            top: 426px
+            transform: translate3d(-134%,-65%,0)
             width: 374px
         &__btn
             height: 63px
@@ -631,17 +699,25 @@
                 transform: translate3d(100%,0,0)
         &__img-cake
             width: 174px
+            top: 310px
+            transform: translate3d(13px,-73%,0)
         &__img-gift
             width: 197px
+            top: 314px
         &__img-feedback
             width: 254px
+            top: 309px
+            transform: translate3d(33%,-56%,10px)
         &__img-crown
             width: 141px
+            top: 308px
         &__img-hand
             width: 165px
         &__img-powder_pink_1
             width: 465px
+            top: 320px
         &__img-powder_pink_2
+            top: 322px
             width: 336px
         &__img-tablet
             &.active
@@ -655,16 +731,26 @@
                 transform: translate3d(-100%,0,0)
         &__img-darts
             width: 172px
+            top: 355px
         &__img-coins
             width: 92px
+            top: 364px
         &__img-money
             width: 210px
+            transform: translate3d(32%,-63%,0)
+            top: 368px
         &__img-diamond
             width: 70px
+            top: 357px
         &__img-powder_blue_2
+            top: 370px
             width: 325px
         &__img-powder_blue_1
+            top: 370px
             width: 325px
+        &__messages-wrapper
+            top: 361px
+            transform: translate3d(-145%,-11%,0)
         &__img-phone-1
             width: 282px
             top: 171px
@@ -679,6 +765,7 @@
             width: 311px
             &.active
                 width: 311px
+                transform: translate3d(-97%,-20px,0)
             &.right
                 transform: translate3d(100%,0,0)
             &.left
@@ -686,19 +773,27 @@
                 transform: translate3d(-100%,0,0)
         &__img-table
             width: 158px
+            top: 350px
         &__img-zen
             width: 184px
+            top: 351px
         &__img-hammock
             width: 224px
+            top: 365px
         &__img-palm
             width: 236px
+            top: 348px
         &__img-bag
             width: 240px
+            top: 354px
         &__img-powder_pur_2
+            top: 350px
             width: 323px
         &__img-powder_pur_1
+            top: 346px
             width: 307px
         &__img-powder_pur_3
+            top: 363px
             width: 280px
 
 @media (max-width: 605px)
@@ -738,8 +833,9 @@
         height: 844px
         background-image: linear-gradient(164deg,#ff884b 45%,#fc00ff)
         &__messages-wrapper
-            top: 117%
-            left: 44%
+            top: 50%
+            left: 50%
+            transform: translate3d(-25%, -10%, 0) rotate(13deg)
             z-index: 1
         &__logo-icon
             width: 72px
@@ -761,25 +857,30 @@
                 left: 44%
         &__img-gift
             width: 142px
-            top: 196%
-            left: -37%
+            top: 50%
+            left: 50%
+            transform: translate3d(-159%, 170%, 0)
         &__img-crown
             width: 141px
-            top: 130%
+            top: 50%
             z-index: 2
-            left: 44%
+            left: 50%
+            transform: translate3d(-3%, 31%, 0) rotate(-43deg)
         &__img-feedback
             width: 245px
-            left: 40%
-            top: 92%
+            left: 50%
+            top: 50%
+            transform: translate3d(-5%, -61%, 0)
         &__img-cake
             width: 126px
-            left: 72%
-            top: 64%
+            left: 50%
+            top: 50%
+            transform: translate3d(83%, -91%, 0)
             z-index: 4
         &__img-hand
-            top: 137%
-            left: 51%
+            top: 50%
+            left: 50%
+            transform: translate3d(9%, 41%, 0)
         &__img-powder_pink_1
             display: none
         &__img-powder_pink_2
@@ -789,24 +890,28 @@
         &__img-powder_blue_2
             display: none
         &__img-money
-            top: 184%
+            top: 50%
             width: 236px
-            left: 25%
+            left: 50%
+            transform: translate3d(-30%, 137%, 0)
         &__img-table
             width: 305px
             top: 118%
             left: -30%
         &__img-coins
             width: 70px
-            top: 164%
-            left: 57%
+            top: 50%
+            left: 50%
+            transform: translate3d(22%, 192%, 0)
         &__img-diamond
             width: 60px
-            top: 120%
-            left: 9%
+            top: 50%
+            left: 50%
+            transform: translate3d(-224%, 10%, 0) rotate(-80deg)
         &__img-darts
-            top: 131%
-            left: 49%
+            top: 50%
+            left: 50%
+            transform: translate3d(-11%, 10%, 0)
         &__img-tablet
             width: 305px
             top: 54%
@@ -823,21 +928,25 @@
             display: none
         &__img-table
             width: 137px
-            top: 180%
-            left: 32%
+            top: 50%
+            left: 50%
+            transform: translate3d(-31%, 120%, 0)
         &__img-zen
             width: 176px
-            top: 141%
-            left: 45%
-            z-index: 4
+            top: 50%
+            left: 50%  
+            transform: translate3d(-14%,16%,0)
+            z-index: 5
         &__img-palm
             width: 239px
-            top: 73%
-            left: 51%
+            top: 50%
+            left: 50%
+            transform: translate3d(5%, -51%, 0)
         &__img-bag
             width: 195px
-            top: 99%
-            left: -14%
+            top: 50%
+            left: 50%
+            transform: translate3d(-95%, -43%, 0) rotate(-17deg)
         &__img-phone-1
             width: 287px
             top: 43%
@@ -849,11 +958,12 @@
             width: 296px
             top: 51%
             &.active
-                transform: translate3d(-97%,0,0)
+                transform: translate3d(-86%,48px,0)
         &__img-hammock
             width: 202px
-            top: 112%
-            left: 48%
+            top: 50%
+            left: 50%
+            transform: translate3d(-4%, -18%, 0)
         &__btn
             height: 54px
             width: 154px
