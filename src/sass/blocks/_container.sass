@@ -8,6 +8,13 @@
     100%
         opacity: 1    
 
+// @keyframes animationPositionCenter
+//     0%
+//         transform: translate3d(-39%,-0%,0)
+//         left: 100%
+//     100%
+//         transform: translate3d(-55%,-0%,0)
+//         left: 50%
     
 .mobile
     display: none
@@ -60,9 +67,9 @@
     width: 468px
 
 .container
-    // height: 100vh
-    height: 890px
-    min-height: 100vh
+    height: 100vh
+    // height: 890px
+    // min-height: 100vh
     width: 100%
     background-image: linear-gradient(120deg, #ff884b 30%, #fc00ff)
     position: relative
@@ -79,6 +86,7 @@
         transform: translateX(-50%)
         opacity: 0
         transition: opacity 3s
+        z-index: 1
         &.active
             opacity: 1
     &__wrapper-second
@@ -90,6 +98,7 @@
         left: 50%
         transform: translateX(-50%)
         transition: opacity 3s
+        z-index: 1
         &.active
             opacity: 1
     &__wrapper-third
@@ -101,6 +110,7 @@
         transform: translateX(-50%)
         opacity: 0
         transition: opacity 3s
+        z-index: 1
         &.active
             opacity: 1
     &__logo
@@ -111,6 +121,8 @@
         position: absolute
         top: 36px
         right: 140px
+    &__logo-icon
+        width: 97px
     &__logo-poligon
         position: relative
         display: inline-block
@@ -139,19 +151,19 @@
         // left: 14%
         z-index: 3
         transition: all 1s 
-        transform: translate3d(0,0,0)
         &.left
-            transform: translate3d(-50%,-0%,0)
-            left: 0
+            // transform: translate3d(-50%,-0%,0)
+            left: calc( 0px - 142px )
             width: 285px
         &.right
-            transform: translate3d(-39%,-0%,0)
-            left: 100%
+            // transform: translate3d(-39%,-0%,0)
+            left: calc( 100% - 142px )
             width: 285px
             animation: animationRight 3s 
         &.active
-            transform: translate3d(-55%,-0%,0)
-            left: 50%
+            // animation: animationPositionCenter 1s
+            // transform: translate3d(-55%,-0%,0)
+            left: calc(50% - 329px)
     &__img-gift
         position: absolute
         width: 329px
@@ -204,27 +216,24 @@
         z-index: 1
     &__img-tablet
         position: absolute
-        // top: 23%
-        // left: 24%
         top: 204px
-        // left: 50%
-        // transform: translate3d(-52%,-50%,0)
         z-index: 3
         transition: all 1s 
         transform: translate3d(0,0,0)
         &.active
-            left: 50%
+            left: calc( 50% - 271px )
             width: 522px
-            transform: translate3d(-52%,-0%,0)
+            // transform: translate3d(-52%,-0%,0)
         &.right
-            left: 100%
+            left: calc( 100% - 148px )
             width: 353px
-            transform: translate3d(-42%,-0%,0)
+            // transform: translate3d(-42%,-0%,0)
             animation: animationRight 3s
         &.left
             width: 353px
             left: 0
-            transform: translate3d(-64%,-0%,0)
+            left: calc( 0px - 226px )
+            // transform: translate3d(-64%,-0%,0)
     &__img-darts
         width: 288px
         position: absolute
@@ -332,17 +341,17 @@
         width: 548px
         z-index: 4
         transition: all 1s 
-        transform: translate3d(0,0,0)
+        // transform: translate3d(0,0,0)
         &.active
-            transform: translate3d(-46%,-0%,0)
-            left: 50%
+            // transform: translate3d(-46%,-0%,0)
+            left: calc( 50% - 252px )
         &.left
-            left: 0;
-            transform: translate3d(-15%,-0%,0)
+            left: calc( 0px - 37px )
+            // transform: translate3d(-15%,-0%,0)
             width: 245px
         &.right
-            left: 100%
-            transform: translate3d(-18%,-0%,0)
+            left: calc( 100% - 44px )
+            // transform: translate3d(-18%,-0%,0)
             width: 245px
             animation: animationRight 3s
     &__img-phone-2
@@ -353,19 +362,20 @@
         // left: -2%
         // top: 25%
         width: 519px
-        z-index: 4
+        z-index: 3
         transition: all 1s 
-        transform: translate3d(0,0,0)
+        // transform: translate3d(0,0,0)
         &.active
-            transform: translate3d(-100%,22px,0)
-            left: 50%
+            // transform: translate3d(-100%,22px,0)
+            top: 226px
+            left: calc( 50% - 519px )
         &.left
-            left: 0
-            transform: translate3d(-69%,-0%,0)
+            left: calc( 0px - 147px )
+            // transform: translate3d(-69%,-0%,0)
             width: 214px
         &.right
-            left: 100%
-            transform: translate3d(-65%,-0%,0)
+            left: calc( 100% - 169px )
+            // transform: translate3d(-65%,-0%,0)
             width: 260px
             animation: animationRight 3s
     &__img-bag
@@ -426,7 +436,7 @@
         z-index: 1
     &__btn
         position: absolute
-        bottom: 55px
+        bottom: 25px
         left: 50%
         height: 72px
         width: 208px
@@ -438,6 +448,7 @@
         border: 5px solid #fff
         font-weight: 600
         cursor: pointer
+        z-index: 8
         &:focus
             outline: none
 
@@ -519,8 +530,9 @@
             width: 478px
             top: 181px
             &.active
-                transform: translate3d(-50%,-20px,0)
-                left: 50%
+                // transform: translate3d(-50%,-20px,0)
+                left: calc( 50% - 239px )
+                top: 161px
             &.left
                 width: 247px
         &__img-feedback
@@ -554,8 +566,8 @@
             top: 187px
             &.active
                 width: 417px
-                left: 49%
-                transform: translate3d(-52%,0,0)
+                left: calc( 50% - 217px )
+                // transform: translate3d(-52%,0,0)
             &.right
                 width: 274px
         &__img-darts
@@ -587,12 +599,15 @@
             top: 178px
             &.active
                 width: 438px
+                left: calc(50% - 202px)
         &__img-phone-2
             width: 415px
             top: 191px
             &.active
                 width: 415px
-                transform: translate3d(-97%,0,0)
+                top: 190px
+                // transform: translate3d(-97%,0,0)
+                left: calc(50% - 394px)
             &.right
                 width: 245px
         &__img-table
@@ -629,6 +644,34 @@
             height: 63px
             width: 190px
             font-size: 28px
+
+@media ( max-width: 1090px )
+    .container
+        &__img-laptop
+            &.left
+                left: calc( -30% - 230px )
+                width: 230px
+            &.right
+                width: 230px
+                left:  calc( 100% + 230px )
+        &__img-tablet
+            &.right
+                width: 247px
+                left: calc( 100% + 247px )
+            &.left
+                left: calc( -70% - 247px )
+                width: 247px
+        &__img-phone-1
+            &.right
+                left: calc( 100% + 280px )
+            &.left
+                left: calc( -70% - 280px )
+        &__img-phone-2
+            &.right
+                left: calc( 100% + 300px )
+            &.left
+                left: calc( -70% - 300px )
+    
 
 @media ( max-width: 871px )
 
@@ -690,13 +733,15 @@
         &__img-laptop
             &.active
                 width: 380px
+                left: calc(50% - 213px)
             &.left
-                left: -30%
+                left: calc( -30% - 230px )
                 width: 230px
-                transform: translate3d(-100%,0,0)
+                // transform: translate3d(-100%,0,0)
             &.right
                 width: 230px
-                transform: translate3d(100%,0,0)
+                left:  calc( 100% + 230px )
+                // transform: translate3d(100%,0,0)
         &__img-cake
             width: 174px
             top: 310px
@@ -722,13 +767,15 @@
         &__img-tablet
             &.active
                 width: 312px
+                left: calc( 50% - 162px )
             &.right
                 width: 247px
-                transform: translate3d(100%,0,0)
+                left: calc( 100% + 247px )
+                // transform: translate3d(100%,0,0)
             &.left
-                left: -70%
+                left: calc( -70% - 247px )
                 width: 247px
-                transform: translate3d(-100%,0,0)
+                // transform: translate3d(-100%,0,0)
         &__img-darts
             width: 172px
             top: 355px
@@ -756,21 +803,26 @@
             top: 171px
             &.active
                 width: 282px
+                left: calc(50% - 128px)
             &.right
-                transform: translate3d(100%,0,0)
+                left: calc( 100% + 280px )
+                // transform: translate3d(100%,0,0)
             &.left
-                left: -70%
-                transform: translate3d(-100%,0,0)
+                left: calc( -70% - 280px )
+                // transform: translate3d(-100%,0,0)
         &__img-phone-2
             width: 311px
             &.active
                 width: 311px
-                transform: translate3d(-97%,-20px,0)
+                left: calc(50% - 298px)
+                top: 171px
+                // transform: translate3d(-97%,-20px,0)
             &.right
-                transform: translate3d(100%,0,0)
+                // transform: translate3d(100%,0,0)
+                left: calc( 100% + 300px )
             &.left
-                left: -70%
-                transform: translate3d(-100%,0,0)
+                left: calc( -70% - 300px )
+                // transform: translate3d(-100%,0,0)
         &__img-table
             width: 158px
             top: 350px
@@ -852,9 +904,12 @@
             width: 311px
         &__img-laptop
             width: 326px
-            top: 54%
+            top: 53%
             &.active
-                left: 44%
+                // transform: translate3d(0, 0, 0)
+                // transform: translate3d(-56%,-20px,0)
+                top: 53%
+                left: calc(50% - 212px)
         &__img-gift
             width: 142px
             top: 50%
@@ -915,11 +970,12 @@
         &__img-tablet
             width: 305px
             top: 54%
-            left: -25%
             &.active
-                transform: translate3d(-79%,0,0)
+                // transform: translate3d(-79%,0px,0)
+                top: 54%
+                left: calc( 50% - 244px )
             &.right
-                left: 100%
+                left: 300%
         &__img-powder_pur_1
             display: none
         &__img-powder_pur_2
@@ -930,40 +986,46 @@
             width: 137px
             top: 50%
             left: 50%
-            transform: translate3d(-31%, 120%, 0)
+            transform: translate3d(-31%, 150%, 0)
         &__img-zen
             width: 176px
             top: 50%
             left: 50%  
-            transform: translate3d(-14%,16%,0)
+            transform: translate3d(-14%,32%,0)
             z-index: 5
         &__img-palm
             width: 239px
             top: 50%
             left: 50%
-            transform: translate3d(5%, -51%, 0)
+            transform: translate3d(5%, -46%, 0)
         &__img-bag
             width: 195px
             top: 50%
             left: 50%
-            transform: translate3d(-95%, -43%, 0) rotate(-17deg)
+            transform: translate3d(-101%,-16%,0) rotate(-17deg)
         &__img-phone-1
             width: 287px
             top: 43%
             z-index: 5
             transform: rotate(-17deg)
             &.active
-                transform: translate3d(-57%,0,0)  rotate(-17deg)
+                width: 287px
+                transform: rotate(-17deg)
+                left: calc( 50% - 170px )
+                top: 50%
         &__img-phone-2
-            width: 296px
+            z-index: 4
             top: 51%
             &.active
-                transform: translate3d(-86%,48px,0)
+                // transform: translate3d(-86%,48px,0)
+                width: 296px
+                left: calc(50% - 271px)
+                top: 62%
         &__img-hammock
             width: 202px
             top: 50%
             left: 50%
-            transform: translate3d(-4%, -18%, 0)
+            transform: translate3d(-4%, 4%, 0)
         &__btn
             height: 54px
             width: 154px
